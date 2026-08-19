@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LagroInAction - Auth Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- FLOATING MAIN CONTAINER -->
+    <div class="main-container">
+        
+        <!-- ================= LEFT HALF: IMAGE PLACEHOLDER ================= -->
+        <div class="left-panel">
+            <div class="brand-title">LagroInAction</div>
+            <div class="image-placeholder-text">[ Left Side Image Placeholder ]</div>
+        </div>
+
+        <!-- ================= RIGHT HALF: FORMS CONTAINER ================= -->
+        <div class="right-panel">
+            
+            <!-- CIRCULAR SCHOOL LOGO -->
+            <div class="logo-container">
+                <img src="logo.png" 
+                     alt="Lagro High School Logo">
+            </div>
+
+            <!-- ================= 1. STUDENT LOG IN FORM ================= -->
+            <div id="studentLoginSection" class="form-section">
+                <h2 class="form-title">STUDENT LOG IN</h2>
+
+                <form onsubmit="event.preventDefault();" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">LRN:</label>
+                        <input type="text" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password:</label>
+                        <input type="password" required class="form-input">
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit" class="btn-submit">Login</button>
+                    </div>
+                </form>
+
+                <div class="switch-link-container">
+                    <span class="switch-text">Don't have an account?</span>
+                    <button onclick="showForm('studentSignupSection')" class="btn-switch">Register Here.</button>
+                </div>
+            </div>
+
+            <!-- ================= 2. STUDENT SIGN UP FORM ================= -->
+            <div id="studentSignupSection" class="form-section hidden">
+                <h2 class="form-title">STUDENT SIGN UP</h2>
+
+                <form onsubmit="event.preventDefault();" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label form-label-wide">Full Name:</label>
+                        <input type="text" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label form-label-wide">Username:</label>
+                        <input type="text" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label form-label-wide">LRN:</label>
+                        <input type="text" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label form-label-wide">Grade & Section:</label>
+                        <input type="text" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label form-label-wide">Adviser:</label>
+                        <input type="text" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label form-label-wide">Email:</label>
+                        <input type="email" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label form-label-wide">Password:</label>
+                        <input type="password" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label form-label-wide">Re-Enter Password:</label>
+                        <input type="password" required class="form-input">
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit" class="btn-submit">Register</button>
+                    </div>
+                </form>
+
+                <div class="switch-link-container">
+                    <span class="switch-text">Already have an account?</span>
+                    <button onclick="showForm('studentLoginSection')" class="btn-switch">Login Here.</button>
+                </div>
+            </div>
+
+            <!-- ================= 3. ADMIN LOG IN FORM ================= -->
+            <div id="adminLoginSection" class="form-section hidden">
+                <h2 class="form-title">ADMIN LOG IN</h2>
+
+                <form onsubmit="event.preventDefault();" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label">User:</label>
+                        <input type="text" required class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password:</label>
+                        <input type="password" required class="form-input">
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit" class="btn-submit">Login</button>
+                    </div>
+                </form>
+
+                <div class="switch-link-container">
+                    <span class="switch-text">Not an admin?</span>
+                    <button onclick="showForm('studentLoginSection')" class="btn-switch">Back to Student Log In.</button>
+                </div>
+            </div>
+
+            <!-- Secret trigger for Admin Portal -->
+            <button onclick="showForm('adminLoginSection')" class="secret-admin-trigger">
+                v1.0.1
+            </button>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

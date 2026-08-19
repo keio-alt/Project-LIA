@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LagroInAction - Admin Messages</title>
+    <link rel="stylesheet" href="adminmessage.css">
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <button onclick="toggleSidebar()" class="menu-btn" title="Toggle Menu">☰</button>
+            <img src="logo.png" alt="School Logo" class="topbar-logo">
+        </div>
+
+        <div class="topbar-center">
+            PROJECT L.I.A
+        </div>
+
+        <div class="topbar-right">
+            <span class="user-name">Guidance Admin</span>
+            <div class="profile-link">
+                <img src="logo.png" alt="Admin Profile" class="profile-pic">
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN BODY CONTAINER -->
+    <div class="app-body">
+
+        <!-- FIXED SIDEBAR -->
+        <aside id="sidebar" class="sidebar">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="../homepage/homepage.html">Home</a></li>
+                <li class="nav-item"><a href="../dashboard/admin.html">Dashboard</a></li>
+                <li class="nav-item"><a href="../Manage Reports/manage.html">Manage Reports</a></li>
+                <li class="nav-item"><a href="../Report Records/reportrecords.html">Report Records</a></li>
+                <li class="nav-item"><a href="../Request Account/requestregister.html">Registration Requests</a></li>
+                <li class="nav-item active"><a href="adminmessage.html">Messages</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT AREA WITH FLOATING CARD WRAPPER -->
+        <main class="main-content">
+            <div class="chat-card">
+
+                <!-- INBOX SIDEBAR (STUDENT LIST) -->
+                <div class="chat-sidebar">
+                    <div class="chat-search-box">
+                        <input type="text" id="studentSearch" placeholder="Search student name or LRN..." onkeyup="filterStudents()">
+                    </div>
+
+                    <div class="student-list" id="studentList">
+                        <!-- STUDENT ITEM 1 -->
+                        <div class="student-item active" onclick="selectStudent(1, 'LeBronny Mouse', '123456789012', 'Grade 10 - Acacia', 'Active Investigation', event)">
+                            <div class="student-avatar">LM</div>
+                            <div class="student-info">
+                                <div class="student-top">
+                                    <span class="student-name">LeBronny Mouse</span>
+                                    <span class="chat-time">10:45 AM</span>
+                                </div>
+                                <div class="student-bottom">
+                                    <span class="last-msg">Thank you po, Guidance Admin.</span>
+                                    <span class="unread-badge">2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STUDENT ITEM 2 -->
+                        <div class="student-item" onclick="selectStudent(2, 'Kurt Vinz Culajara', '123456789011', 'Grade 11 - Bill Gates', 'Pending Review', event)">
+                            <div class="student-avatar">KC</div>
+                            <div class="student-info">
+                                <div class="student-top">
+                                    <span class="student-name">Kurt Vinz Culajara</span>
+                                    <span class="chat-time">Yesterday</span>
+                                </div>
+                                <div class="student-bottom">
+                                    <span class="last-msg">May update na po ba sa report ko?</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STUDENT ITEM 3 -->
+                        <div class="student-item" onclick="selectStudent(3, 'Juan Batumbakal', '987654321098', 'Grade 11 - Alan Turing', 'Resolved Case', event)">
+                            <div class="student-avatar">JB</div>
+                            <div class="student-info">
+                                <div class="student-top">
+                                    <span class="student-name">Juan Batumbakal</span>
+                                    <span class="chat-time">Aug 17</span>
+                                </div>
+                                <div class="student-bottom">
+                                    <span class="last-msg">Nakausap ko na po si Adviser.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHAT MAIN WORKSPACE -->
+                <div class="chat-main">
+                    
+                    <!-- CHAT HEADER -->
+                    <div class="chat-header">
+                        <div class="active-student-details">
+                            <h3 id="activeStudentName">LeBronny Mouse</h3>
+                            <p id="activeStudentSub">LRN: 123456789012 • Grade 10 - Acacia • <span class="status-tag">Active Investigation</span></p>
+                        </div>
+                        <button class="btn btn-scan" onclick="viewCaseDetails()">View Linked Case</button>
+                    </div>
+
+                    <!-- CHAT MESSAGES THREAD -->
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="system-date">Today, August 19, 2026</div>
+
+                        <!-- STUDENT MESSAGE -->
+                        <div class="message msg-incoming">
+                            <div class="msg-bubble">
+                                Good morning po. Gusto ko lang po itanong kung na-review niyo na po yung incident report na pinasa ko kahapon tungkol sa ginawa sa corridor?
+                                <span class="msg-time">10:30 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- ADMIN MESSAGE -->
+                        <div class="message msg-outgoing">
+                            <div class="msg-bubble">
+                                Hello LeBronny. Yes, na-review na namin ang report mo (#REP-1042). Kasalukuyan na naming itinatawag ang inyong Section Adviser para sa follow-up meeting.
+                                <span class="msg-time">10:38 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- STUDENT MESSAGE -->
+                        <div class="message msg-incoming">
+                            <div class="msg-bubble">
+                                Thank you po, Guidance Admin. Makakaasa po ba ako na mananatiling confidential ito?
+                                <span class="msg-time">10:45 AM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CHAT INPUT AREA -->
+                    <form class="chat-input-area" onsubmit="sendMessage(event)">
+                        <input type="text" id="messageInput" placeholder="Type your response to the student..." required autocomplete="off">
+                        <button type="submit" class="btn-send">Send Message</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="adminmessage.js"></script>
+</body>
+</html>

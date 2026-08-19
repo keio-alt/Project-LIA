@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@800;900&display=swap');
+
+/* Global Reset & Page Background */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #52525b; /* Stone Grey background */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+/* Helper Class for Switching Forms */
+.hidden {
+    display: none !important;
+}
+
+/* Floating Container (50/50 Split) */
+.main-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #ffffff;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    min-height: 550px;
+    overflow: hidden;
+}
+
+/* Left Half: Placeholder */
+.left-panel {
+    width: 50%;
+    background-color: #e3e3e3;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.brand-title {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #f39c12;
+    letter-spacing: -0.025em;
+}
+
+.image-placeholder-text {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    font-weight: 500;
+    align-self: center;
+    margin: auto 0;
+}
+
+/* Right Half: Form Container */
+.right-panel {
+    width: 50%;
+    background-color: #ffffff;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* School Logo */
+.logo-container {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Form Section Wrapper */
+.form-section {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Titles */
+.form-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #1b5e20;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Form Controls & Layout */
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-label {
+    font-family: 'Merriweather', serif;
+    color: #1b5e20;
+    font-weight: 700;
+    font-size: 0.875rem;
+    width: 110px;
+}
+
+.form-label-wide {
+    width: 150px;
+    font-size: 0.75rem;
+}
+
+.form-input {
+    flex: 1;
+    border: 2px solid #334155;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #16a34a;
+}
+
+/* Green Submit Button */
+.button-container {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-submit {
+    width: 75%;
+    background-color: #00a859;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    font-size: 1.125rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #15803d;
+}
+
+/* Footer / Switch Links */
+.switch-link-container {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.switch-text {
+    color: #00a859;
+    font-weight: 700;
+    display: block;
+}
+
+.btn-switch {
+    background: none;
+    border: none;
+    color: #f39c12;
+    font-weight: 700;
+    font-style: italic;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-switch:hover {
+    text-decoration: underline;
+}
+
+/* Secret Admin Trigger */
+.secret-admin-trigger {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.75rem;
+    font-size: 0.625rem;
+    color: #cbd5e1;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.secret-admin-trigger:hover {
+    color: #64748b;
+}
+
+/* Responsive Scaling for Smaller Screens */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .left-panel, .right-panel {
+        width: 100%;
+    }
+}
